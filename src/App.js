@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import TaskList from "./components/TaskList";
 import TaskInput from "./components/TaskInput";
-import "./App.css"
+import "./App.css";
 
 const App = () => {
-  // Initializes tasks from localStorage if alrerady enetered some
-  //  or default to an empty array
-  const [ tasks, setTasks ] = useState(() => {
+  // Initializes tasks from localStorage if already entered some
+  // or defaults to an empty array
+  const [tasks, setTasks] = useState(() => {
     const savedTasks = localStorage.getItem("tasks");
     return savedTasks ? JSON.parse(savedTasks) : [];
   });
@@ -23,13 +23,13 @@ const App = () => {
   const toggleTask = (id) => {
     setTasks(
       tasks.map((task) =>
-        task.id === id ? {...task, completed: !task.completed } : task
+        task.id === id ? { ...task, completed: !task.completed } : task
       )
-    )
+    );
   };
 
   const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id ));
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   return (
@@ -38,7 +38,8 @@ const App = () => {
       <TaskInput addTask={addTask} />
       <TaskList tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask} />
     </div>
-  )
-}
+  );
+};
 
 export default App;
+
