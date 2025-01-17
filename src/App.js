@@ -16,10 +16,12 @@ const App = () => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
+  //Adds a new task to the list
   const addTask = (task) => {
     setTasks([...tasks, { id: Date.now(), text: task, completed: false }]);
   };
 
+  //toggle task for completed and not-completed
   const toggleTask = (id) => {
     setTasks(
       tasks.map((task) =>

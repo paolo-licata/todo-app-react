@@ -3,11 +3,14 @@ import React from "react";
 const TaskItem = ({ task, toggleTask, deleteTask }) => {
   return (
     <li>
-      <input
+			<label className="custom-checkbox">
+			<input
         type="checkbox"
         checked={task.completed}
         onChange={() => toggleTask(task.id)}
       />
+			<span className="slider"></span>
+			</label>      
       <span
         style={{
           textDecoration: task.completed ? "line-through" : "none",
