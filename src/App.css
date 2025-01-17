@@ -14,7 +14,7 @@ body {
 /* App Container */
 #root {
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   margin: 20px;
 }
 
@@ -32,22 +32,25 @@ form {
   margin-bottom: 20px;
 }
 
-input[type="text"] {
+input {
   flex: 1;
+  color: #555;
   padding: 10px;
-  border: 2px solid #de8622;
-  border-radius: 5px 0 0 5px;
+  margin: 2px;
+  border: none;
+  border-radius: 5px;
   outline: none;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .submitButton {
-  padding: 10px 20px;
+  padding: 4px 12px;
+  margin: 2px;
   border: none;
   background-color: #de8622;
   color: white;
-  font-size: 1rem;
-  border-radius: 0 5px 5px 0;
+  font-size: 0.9rem;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -132,6 +135,13 @@ li span {
 li span.completed {
   text-decoration: line-through;
   color: #aaa;
+}
+
+.task-time {
+  margin-left: 10px;
+  color: #a1a1a1;
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
 .deleteButton {

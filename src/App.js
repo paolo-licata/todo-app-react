@@ -17,8 +17,13 @@ const App = () => {
   }, [tasks]);
 
   //Adds a new task to the list
-  const addTask = (task) => {
-    setTasks([...tasks, { id: Date.now(), text: task, completed: false }]);
+  const addTask = (text, time) => {
+    const newTask = { id: Date.now(), text, time, completed: false }
+    setTasks([...tasks, newTask]);
+
+    if (time) {
+      setAlarm(newTask) //Only sets an alarm whenever time is provided
+    }
   };
 
   //toggle task for completed and not-completed
@@ -33,6 +38,28 @@ const App = () => {
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
+
+  const setAlarm = (task) => {
+    if (!task.time) return;
+    
+    const [hours, minutes] = task.time.split(":").map(Number);
+    const now = new Date();
+    const alarmTime = new Date(
+      now.getFullYear(),
+      now.getMonth,
+      now.getDate(),
+      hours,
+      minutes
+    );
+
+    const delay = alarmTime - now; //this calculates the time difference
+
+    if (delay > 0) {
+      setTimeout(() => {
+        alert('Reminder: ${task.text}')
+      }, delay);
+    }
+  }
 
   return (
     <div>

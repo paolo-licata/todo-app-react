@@ -1,6 +1,7 @@
 import React from "react";
 
 const TaskItem = ({ task, toggleTask, deleteTask }) => {
+
   return (
     <li>
 			<label className="custom-checkbox">
@@ -18,6 +19,7 @@ const TaskItem = ({ task, toggleTask, deleteTask }) => {
       >
         {task.text}
       </span>
+			<span className="task-time">{task.time}</span>
       <button
         className="deleteButton"
         onClick={() => deleteTask(task.id)}
