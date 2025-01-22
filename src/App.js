@@ -59,7 +59,7 @@ const App = () => {
 
     if (delay > 0) {
       setTimeout(() => {
-        const audio = new Audio("/alarm.wav")
+        const audio = new Audio(process.env.PUBLIC_URL + "/alarm.wav")
         audio.play(); //Plays the alert sound
 
         //Shows the alert
