@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TaskList from "./components/TaskList";
 import TaskInput from "./components/TaskInput";
+import Notification from "./components/Notification";
 import "./App.css";
 
 const App = () => {
@@ -10,6 +11,8 @@ const App = () => {
     const savedTasks = localStorage.getItem("tasks");
     return savedTasks ? JSON.parse(savedTasks) : [];
   });
+
+  const [notification, setNotification] = useState(null);
 
   // Saves tasks to localStorage whenever they change
   useEffect(() => {
@@ -46,7 +49,7 @@ const App = () => {
     const now = new Date();
     const alarmTime = new Date(
       now.getFullYear(),
-      now.getMonth,
+      now.getMonth(),
       now.getDate(),
       hours,
       minutes
@@ -56,9 +59,19 @@ const App = () => {
 
     if (delay > 0) {
       setTimeout(() => {
-        alert('Reminder: ${task.text}')
+        const audio = new Audio("/alarm.wav")
+        audio.play(); //Plays the alert sound
+
+        //Shows the alert
+        setNotification({
+          message: `Reminder: ${task.text}`,
+        })
       }, delay);
     }
+  }
+
+  const closeNotification = () => {
+    setNotification(null);
   }
 
   return (
@@ -66,6 +79,9 @@ const App = () => {
       <h1>To-Do List</h1>
       <TaskInput addTask={addTask} />
       <TaskList tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask} />
+      {notification && (
+        <Notification message={notification.message} onClose={closeNotification} />
+      )}
     </div>
   );
 };
