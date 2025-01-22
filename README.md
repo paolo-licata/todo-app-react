@@ -25,5 +25,5 @@ Check out the live version of the app [here](https://paolo-licata.github.io/todo
 1. Clone the repository:
    ```bash
    git clone https://github.com/paolo-licata/todo-app-react.git
-   cd todo-list-app
+   cd todo-app-react
    ```
