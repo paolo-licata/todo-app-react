@@ -19,7 +19,7 @@ const TaskItem = ({ task, toggleTask, deleteTask }) => {
       >
         {task.text}
       </span>
-			<span className="task-time">{task.time}</span>
+			<span className="task-time">{task.time ? `${task.time}` : ''}</span>
       <button
         className="deleteButton"
         onClick={() => deleteTask(task.id)}

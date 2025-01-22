@@ -21,7 +21,7 @@ const App = () => {
 
   //Adds a new task to the list
   const addTask = (text, time) => {
-    const newTask = { id: Date.now(), text, time, completed: false }
+    const newTask = { id: Date.now(), text, time: time || null, completed: false }
     setTasks([...tasks, newTask]);
 
     if (time) {

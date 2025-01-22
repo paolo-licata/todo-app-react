@@ -12,7 +12,7 @@ A simple, elegant, and responsive To-Do List application built with React. This 
 
 ## 🚀 Demo
 
-Check out the live version of the app [here](#).
+Check out the live version of the app [here](https://paolo-licata.github.io/todo-app-react/).
 
 ## 🛠️ Technologies Used
 
@@ -24,6 +24,6 @@ Check out the live version of the app [here](#).
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/todo-list-app.git
+   git clone https://github.com/paolo-licata/todo-app-react.git
    cd todo-list-app
    ```

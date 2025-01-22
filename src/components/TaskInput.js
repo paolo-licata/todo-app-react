@@ -7,12 +7,12 @@ const TaskInput = ({ addTask }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (task.trim() && time.trim()) {
-      addTask(task.trim(), time.trim());
+    if (task.trim()) {
+      addTask(task.trim(), time.trim() || null);
       setTask("");
 			setTime("");
     } else {
-			alert("Please enter both task and time.")
+			alert("Please enter a task.")
 		}
   };
 
