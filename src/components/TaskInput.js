@@ -2,18 +2,17 @@ import React, { useState } from "react";
 
 const TaskInput = ({ addTask }) => {
   const [task, setTask] = useState("");
-	const [time, setTime] = useState("");
+  const [time, setTime] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     if (task.trim()) {
       addTask(task.trim(), time.trim() || null);
       setTask("");
-			setTime("");
+      setTime("");
     } else {
-			alert("Please enter a task.")
-		}
+      alert("Please enter a task.");
+    }
   };
 
   return (
@@ -24,14 +23,12 @@ const TaskInput = ({ addTask }) => {
         value={task}
         onChange={(event) => setTask(event.target.value)}
       />
-			<input
-			type="time"
-			value={time}
-			onChange={(event) => setTime(event.target.value)}
-			/>
-      <button className="submitButton" type="submit">
-        Add
-      </button>
+      <input
+        type="time"
+        value={time}
+        onChange={(event) => setTime(event.target.value)}
+      />
+      <button className="submitButton" type="submit">Add</button>
     </form>
   );
 };
